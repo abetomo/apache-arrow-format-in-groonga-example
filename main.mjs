@@ -12,7 +12,7 @@ const LENGTH = 2000;
 
 // Apache Arrowは列指向なので列ごとにデータを作ります。
 // 行指向にするとどうなるは後述の実行例をご確認ください。
-const keys = Int16Array.from(
+const keys = Array.from(
   { length: LENGTH },
   (_, i) => i);
 
@@ -46,11 +46,11 @@ let response = null;
 // ロード用のテーブルとカラムを作る
 response = await fetch('http://localhost:10041/d/status');
 console.log(await response.json());
-response = await fetch('http://localhost:10041/d/table_create?name=Rainfall&key_type=UInt16');
+response = await fetch('http://localhost:10041/d/table_create?name=Rainfall&key_type=UInt32');
 console.log(await response.json());
 response = await fetch('http://localhost:10041/d/column_create?table=Rainfall&name=precipitation&type=Float');
 console.log(await response.json());
-response = await fetch('http://localhost:10041/d/column_create?table=Rainfall&name=date&type=UInt32');
+response = await fetch('http://localhost:10041/d/column_create?table=Rainfall&name=date&type=UInt64');
 console.log(await response.json());
 
 /*
