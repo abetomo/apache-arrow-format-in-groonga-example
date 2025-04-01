@@ -11,7 +11,6 @@ import {
 const LENGTH = 2000;
 
 // Apache Arrowは列指向なので列ごとにデータを作ります。
-// 行指向にするとどうなるは後述の実行例をご確認ください。
 const keys = Array.from(
   { length: LENGTH },
   (_, i) => i);
